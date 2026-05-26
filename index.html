@@ -41,7 +41,7 @@
                     গ্রামের খামার থেকে সরাসরি <span class="text-teal-600">আপনার প্রতিষ্ঠানে</span>
                 </h1>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    "DUDHER BAZAR" সরাসরি প্রান্তিক খamariদের কাছ থেকে সর্বোচ্চ গুণগত মান বজায় রেখে দুধ সংগ্রহ করে। আমরা বড় বড় হোটেল, রেস্টুরেন্ট এবং বেকারিতে সাশ্রয়ী মূল্যে প্রিমিয়াম প্যাকেজিংয়ে দুধ সরবরাহ করে থাকি।
+                    "DUDHER BAZAR" সরাসরি প্রান্তিক খামারিদের কাছ থেকে সর্বোচ্চ গুণগত মান বজায় রেখে দুধ সংগ্রহ করে। আমরা বড় বড় হোটেল, রেস্টুরেন্ট এবং বেকারিতে সাশ্রয়ী মূল্যে প্রিমিয়াম প্যাকেজিংয়ে দুধ সরবরাহ করে থাকি।
                 </p>
                 <div class="flex space-x-4">
                     <a href="#order" class="bg-teal-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-teal-700 transition transform hover:-translate-y-0.5">অনলাইনে অর্ডার করুন</a>
@@ -163,7 +163,7 @@
     <section id="about" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">আমাদের ফাউন্ডার প্যানেল</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">আমাদের创始人 প্যানেল</h2>
                 <p class="text-gray-600">"DUDHER BAZAR" কে সততা ও নিষ্ঠার সাথে এগিয়ে নিয়ে যাওয়ার পেছনে কাজ করছেন যারা।</p>
             </div>
 
@@ -188,7 +188,7 @@
                     </p>
                     <p>
                         <i class="fa-solid fa-location-dot mr-2"></i> 
-                        <strong>সাব-অফিস:</strong> চাচীয়া মীরগঞ্জ, সুন্দরগঞ্জ,ガイবান্ধা
+                        <strong>সাব-অফিস:</strong> চাচীয়া মীরগঞ্জ, সুন্দরগঞ্জ, গাইবান্ধা
                     </p>
                     <p>
                         <i class="fa-solid fa-envelope mr-2"></i> info@dudherbazar.com
@@ -234,7 +234,7 @@
                 history: "প্রতিদিন গড়ে ১৫-২০ লিটার"
             },
             {
-                name: "মোঃ মশিউর রহমান",
+                name: "মোঃ মשיউর রহমান",
                 age: 52,
                 experience: "১০ বছর",
                 address: "মোস্তফী, লালমনিরহাট",
@@ -245,20 +245,20 @@
         ];
 
         // ==========================================
-        // ২. আপডেটেড ফাউন্ডার ডাটাবেজ (Nazmus & Tahsin)
+        // ২. আপডেটেড ইংলিশ ফাউন্ডার ডাটাবেজ (Nazmus & Tahsin)
         // ==========================================
         const FOUNDERS_DATABASE = [
             {
                 name: "Nazmus Shakib",
-                role: "Co-Founder and CEO",
-                image: "https://i.ibb.co.com/5gqPS4Bh/shakib.png", 
-                bio: "খামারিদের ন্যায্য মূল্য নিশ্চিত করা এবং মানসম্পন্ন সাপ্লাই চেইন তৈরি করতে নিয়োজিত।"
+                role: "Co-Founder & CEO",
+                image: "https://i.ibb.co.com/rRHrr9q1/shakib.png", 
+                bio: ""
             },
             {
                 name: "Tahsin Muyaj",
-                role: "Co-Founder and CEO",
-                image: "https://i.ibb.co.com/n8rbjfDj/logo.png",
-                bio: "বিজনেস অপারেশন এবং মডার্ন টেকনোলজি ম্যানেজমেন্টের মাধ্যমে ব্যবসাকে এগিয়ে নিয়ে যাচ্ছেন।"
+                role: "Co-Founder & CEO",
+                image: "https://i.ibb.co.com/HptzNCdJ/tahsin.png",
+                bio: ""
             }
         ];
 
@@ -296,7 +296,7 @@
             const container = document.getElementById('founders-list');
             container.innerHTML = FOUNDERS_DATABASE.map(founder => `
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg w-72 text-center transform hover:-translate-y-1 transition duration-300">
-                    <div class="h-56 bg-teal-50 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-64 bg-teal-50 flex items-center justify-center relative overflow-hidden">
                         ${founder.image ? 
                             `<img src="${founder.image}" alt="${founder.name}" class="w-full h-full object-cover">` : 
                             `<i class="fa-solid fa-user-tie text-teal-300 text-7xl"></i>`
@@ -304,8 +304,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-1">${founder.name}</h3>
-                        <p class="text-sm font-semibold text-teal-600 mb-3">${founder.role}</p>
-                        <p class="text-xs text-gray-600 leading-relaxed">${founder.bio}</p>
+                        <p class="text-sm font-semibold text-teal-600">${founder.role}</p>
                     </div>
                 </div>
             `).join('');
