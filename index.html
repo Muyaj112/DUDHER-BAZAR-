@@ -49,11 +49,11 @@
             <div>
                 <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Login Portals</h4>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="alert('Customer Login Portal Coming Soon!')" class="flex flex-col items-center justify-center p-3 border border-teal-100 rounded-xl bg-teal-50/20 hover:bg-teal-50 transition text-center group">
+                    <button onclick="openLoginModal('customer')" class="flex flex-col items-center justify-center p-3 border border-teal-100 rounded-xl bg-teal-50/20 hover:bg-teal-50 transition text-center group">
                         <i class="fa-solid fa-user-tie text-teal-600 mb-1 group-hover:scale-110 transition"></i>
                         <span class="text-xs font-bold text-gray-700">Customer Login</span>
                     </button>
-                    <button onclick="alert('Farmer Login Portal Coming Soon!')" class="flex flex-col items-center justify-center p-3 border border-teal-100 rounded-xl bg-teal-50/20 hover:bg-teal-50 transition text-center group">
+                    <button onclick="openLoginModal('farmer')" class="flex flex-col items-center justify-center p-3 border border-teal-100 rounded-xl bg-teal-50/20 hover:bg-teal-50 transition text-center group">
                         <i class="fa-solid fa-cow text-teal-600 mb-1 group-hover:scale-110 transition"></i>
                         <span class="text-xs font-bold text-gray-700">Farmer Login</span>
                     </button>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="mt-4 space-y-2 text-sm text-gray-600">
-                        <div class="flex items-center"><i class="fa-solid fa-check text-teal-600 mr-2"></i> কোনো প্রিজারভেটিভ নেই</div>
+                        <div class="flex items-center"><i class="fa-solid fa-check text-teal-600 mr-2"></i> কোনো প্রিজারভে티브 নেই</div>
                         <div class="flex items-center"><i class="fa-solid fa-check text-teal-600 mr-2"></i> হাইজেনিক ল্যাব টেস্টেড</div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">আমাদের গর্বিত খামারি সমাজ</h2>
-                <p class="text-gray-600">স্বচ্ছতায় আমরা বিশ্বাসী। আমাদের দুধের মূল কারিগর যারা, তাদের বিস্তারিত প্রোفাইল এবং দৈনিক দুধ সরবরাহের লাইভ ডাটা নিচে দেওয়া হলো।</p>
+                <p class="text-gray-600">স্বচ্ছতায় আমরা বিশ্বাসী। আমাদের দুধের মূল কারিগর যারা, তাদের বিস্তারিত প্রোফাইল এবং দৈনিক দুধ সরবরাহের লাইভ ডাটা নিচে দেওয়া হলো।</p>
             </div>
             
             <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
@@ -279,6 +279,34 @@
     </footer>
 
 
+    <div id="login-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl border border-teal-50">
+            <div class="bg-teal-700 p-4 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg" id="login-modal-title"><i class="fa-solid fa-right-to-bracket mr-2"></i>Login Portal</h3>
+                <button onclick="closeLoginModal()" class="hover:text-red-300 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6">
+                <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1" id="login-id-label">ID</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute left-3 top-3 text-gray-400 text-sm"></i>
+                            <input type="text" id="login-id-input" required placeholder="Enter your ID" class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Password</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3 top-3 text-gray-400 text-sm"></i>
+                            <input type="password" id="login-password-input" required placeholder="••••••••" class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-lg shadow-md transition text-sm">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div id="tracker-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl border border-teal-50">
             <div class="bg-teal-700 p-4 text-white flex justify-between items-center">
@@ -376,7 +404,7 @@
                 history: "প্রতিদিন গড়ে ১৫-২০ লিটার"
             },
             {
-                name: "মোঃ মশিউর রহমান",
+                name: "মোঃ মשיউর রহমান",
                 age: 52,
                 experience: "১০ বছর",
                 address: "মোস্তফী, লালমনিরহাট",
@@ -387,7 +415,7 @@
         ];
 
         // ==========================================
-        // ২. আপডেটেড ফাউন্ডার ডাটাবেজ (ইংরেজিতে নাম ও ডেজিগনেশন, নো বায়ো)
+        // ২. ফাউন্ডার ডাটাবেজ (ইংরেজিতে নাম ও ডেজিগনেশন, নো বায়ো)
         // ==========================================
         const FOUNDERS_DATABASE = [
             {
@@ -415,6 +443,7 @@
 
         // --- ইন্টারনাল অ্যাপ লজিক ও ফাংশনস ---
         let selectedPackSize = 0.5;
+        let activeLoginType = 'customer';
 
         // সাইডবার কন্ট্রোল
         function toggleSidebar() {
@@ -424,7 +453,44 @@
             overlay.classList.toggle('hidden');
         }
 
-        // পপ-আপ মডাল ওপেন/ক্লোজ লজিক
+        // লগইন পোর্টাল মডাল হ্যান্ডলিং
+        function openLoginModal(type) {
+            activeLoginType = type;
+            const modal = document.getElementById('login-modal');
+            const title = document.getElementById('login-modal-title');
+            const idLabel = document.getElementById('login-id-label');
+            const idInput = document.getElementById('login-id-input');
+            
+            // ইনপুট রিসেট
+            idInput.value = '';
+            document.getElementById('login-password-input').value = '';
+
+            if(type === 'customer') {
+                title.innerHTML = '<i class="fa-solid fa-user-tie mr-2"></i>Customer Login';
+                idLabel.innerText = 'Customer ID';
+                idInput.placeholder = 'Enter Customer ID';
+            } else {
+                title.innerHTML = '<i class="fa-solid fa-cow mr-2"></i>Farmer Login';
+                idLabel.innerText = 'Farmer ID';
+                idInput.placeholder = 'Enter Farmer ID';
+            }
+            
+            modal.classList.remove('hidden');
+            toggleSidebar();
+        }
+        
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const id = document.getElementById('login-id-input').value;
+            alert("Welcome! Login request received for ID: " + id + ". Processing authentication dashboard...");
+            closeLoginModal();
+        }
+
+        // অন্যান্য পপ-আপ মডাল ওপেন/ক্লোজ লজিক
         function openTracker() { document.getElementById('tracker-modal').classList.remove('hidden'); toggleSidebar(); }
         function closeTracker() { document.getElementById('tracker-modal').classList.add('hidden'); document.getElementById('tracking-result').classList.add('hidden'); }
         
@@ -518,4 +584,4 @@
         };
     </script>
 </body>
-    </html>
+</html>
