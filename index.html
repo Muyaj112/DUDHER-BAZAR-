@@ -13,7 +13,11 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 relative">
+<body class="bg-gray-50 text-gray-800 relative transition-all duration-300">
+
+    <div id="offline-alert" class="hidden fixed top-0 left-0 right-0 bg-red-600 text-white text-center py-2 z-50 text-sm font-semibold tracking-wide shadow-md animate-bounce">
+        <i class="fa-solid fa-wifi-slash mr-2"></i> You are currently offline. Showing cached data.
+    </div>
 
     <header class="bg-white sticky top-0 z-40 shadow-md border-b border-teal-100">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -97,7 +101,7 @@
             </div>
         </div>
         <div class="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-400">
-            Dudher Bazar v1.2.0 • 2026
+            Dudher Bazar v1.3.0 • 2026
         </div>
     </div>
 
@@ -157,8 +161,7 @@
                                 <th class="p-4 font-semibold text-center">মোট রেকর্ড</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-100" id="farmers-list">
-                            </tbody>
+                        <tbody class="divide-y divide-gray-100" id="farmers-list"></tbody>
                     </table>
                 </div>
             </div>
@@ -174,7 +177,7 @@
 
             <div class="grid md:grid-cols-2 gap-8 items-start">
                 <div class="space-y-4">
-                    <div onclick="selectPackage(0.5, 40)" id="pkg-half" class="border-2 border-teal-600 bg-teal-50/30 p-4 rounded-xl cursor-pointer transition flex justify-between items-center">
+                    <div onclick="selectPackage(0.5)" id="pkg-half" class="border-2 border-teal-600 bg-teal-50/30 p-4 rounded-xl cursor-pointer transition flex justify-between items-center">
                         <div class="flex items-center space-x-3">
                             <i class="fa-solid fa-bottle-water text-teal-600 text-2xl"></i>
                             <div>
@@ -185,7 +188,7 @@
                         <span class="font-bold text-teal-700">০.৫ লিটার</span>
                     </div>
 
-                    <div onclick="selectPackage(1, 80)" id="pkg-one" class="border-2 border-transparent bg-gray-50 hover:border-gray-200 p-4 rounded-xl cursor-pointer transition flex justify-between items-center">
+                    <div onclick="selectPackage(1)" id="pkg-one" class="border-2 border-transparent bg-gray-50 hover:border-gray-200 p-4 rounded-xl cursor-pointer transition flex justify-between items-center">
                         <div class="flex items-center space-x-3">
                             <i class="fa-solid fa-jar text-teal-600 text-2xl"></i>
                             <div>
@@ -234,9 +237,7 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">আমাদের ফাউন্ডার প্যানেল</h2>
                 <p class="text-gray-600">"DUDHER BAZAR" কে সততা ও নিষ্ঠার সাথে এগিয়ে নিয়ে যাওয়ার পেছনে কাজ করছেন যারা।</p>
             </div>
-
-            <div class="flex flex-wrap justify-center gap-8" id="founders-list">
-                </div>
+            <div class="flex flex-wrap justify-center gap-8" id="founders-list"></div>
         </div>
     </section>
 
@@ -246,31 +247,18 @@
                 <span class="text-2xl font-bold tracking-wider text-white">DUDHER BAZAR</span>
                 <p class="text-teal-200 text-sm leading-relaxed">গ্রামীন অর্থনীতিকে চাঙ্গা করতে এবং বড় বড় বাণিজ্যিক প্রতিষ্ঠানে খাঁটি দুগ্ধজাত পণ্য পৌঁছে দিতে আমরা প্রতিশ্রুতিবদ্ধ।</p>
             </div>
-            
             <div>
                 <h4 class="text-lg font-semibold mb-4 text-teal-400">যোগাযোগ</h4>
                 <div class="text-sm text-teal-200 space-y-3">
-                    <p>
-                        <i class="fa-solid fa-building mr-2 text-white"></i> 
-                        <strong>মেইন-অফিস:</strong> ধাপ, রংপুর
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-location-dot mr-2"></i> 
-                        <strong>সাব-অফিস:</strong> চাচীয়া মীরগঞ্জ, সুন্দরগঞ্জ, গাইবান্ধা
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-envelope mr-2"></i> info@dudherbazar.com
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-phone mr-2"></i> +৮৮০ ১৭XXXXXXXX
-                    </p>
+                    <p><i class="fa-solid fa-building mr-2 text-white"></i> <strong>মেইন-অফিস:</strong> ধাপ, রংপুর</p>
+                    <p><i class="fa-solid fa-location-dot mr-2"></i> <strong>সাব-অফিস:</strong> চাচীয়া মীরগঞ্জ, সুন্দরগঞ্জ,ガイバンダ</p>
+                    <p><i class="fa-solid fa-envelope mr-2"></i> info@dudherbazar.com</p>
+                    <p><i class="fa-solid fa-phone mr-2"></i> +৮৮০ ১৭XXXXXXXX</p>
                 </div>
             </div>
-            
             <div>
                 <h4 class="text-lg font-semibold mb-4 text-teal-400">সোশ্যাল মিডিয়া অ্যাকাউন্ট</h4>
-                <div class="flex space-x-4 text-2xl" id="social-links">
-                    </div>
+                <div class="flex space-x-4 text-2xl" id="social-links"></div>
             </div>
         </div>
         <div class="container mx-auto px-4 pt-6 text-center text-sm text-teal-300">
@@ -280,12 +268,12 @@
 
 
     <div id="login-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl border border-teal-50">
+        <div class="bg-white rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl border border-teal-50 animate-fade-in">
             <div class="bg-teal-700 p-4 text-white flex justify-between items-center">
                 <h3 class="font-bold text-lg" id="login-modal-title"><i class="fa-solid fa-right-to-bracket mr-2"></i>Login Portal</h3>
                 <button onclick="closeLoginModal()" class="hover:text-red-300 text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="p-6">
+            <div class="p-6 space-y-4">
                 <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase mb-1" id="login-id-label">ID</label>
@@ -303,6 +291,17 @@
                     </div>
                     <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-lg shadow-md transition text-sm">Sign In</button>
                 </form>
+
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-gray-200"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-xs font-semibold uppercase">Or Secure Touch</span>
+                    <div class="flex-grow border-t border-gray-200"></div>
+                </div>
+
+                <button onclick="triggerBiometricAuth()" class="w-full flex items-center justify-center space-x-2 py-2.5 border-2 border-dashed border-teal-500 rounded-xl bg-teal-50/30 text-teal-700 font-bold text-sm hover:bg-teal-50 transition">
+                    <i class="fa-solid fa-fingerprint text-lg text-teal-600 animate-pulse"></i>
+                    <span>Sign In with Fingerprint</span>
+                </button>
             </div>
         </div>
     </div>
@@ -381,58 +380,18 @@
 
 
     <script>
-        // ==========================================
-        // ১. খামারি ডাটাবেজ
-        // ==========================================
+        // --- ডাটাবেজ কনফিগারেশন ---
         const FAMERS_DATABASE = [
-            {
-                name: "আব্দুস কুদ্দুস",
-                age: 45,
-                experience: "৫ বছর",
-                address: "মহেন্দ্রনগর, লালমনিরহাট",
-                joinDate: "১২ জানুয়ারি, ২০২৪",
-                todaySupply: 25,
-                history: "প্রতিদিন গড়ে ২০-৩০ লিটার"
-            },
-            {
-                name: "মোছাঃ রহিমা বেগম",
-                age: 38,
-                experience: "৩ বছর",
-                address: "কুলাঘাট, লালমনিরহাট",
-                joinDate: "০৫ মার্চ, ২০২৫",
-                todaySupply: 18,
-                history: "প্রতিদিন গড়ে ১৫-২০ লিটার"
-            },
-            {
-                name: "মোঃ মשיউর রহমান",
-                age: 52,
-                experience: "১০ বছর",
-                address: "মোস্তফী, লালমনিরহাট",
-                joinDate: "০১ ফেব্রুয়ারি, ২০২৬",
-                todaySupply: 40,
-                history: "প্রতিদিন গড়ে ৩৫-৫০ লিটার"
-            }
+            { name: "আব্দুস কুদ্দুস", age: 45, experience: "৫ বছর", address: "মহেন্দ্রনগর, লালমনিরহাট", joinDate: "১২ জানুয়ারি, ২০২৪", todaySupply: 25, history: "প্রতিদিন গড়ে ২০-৩০ লিটার" },
+            { name: "মোছাঃ রহিমা বেগম", age: 38, experience: "৩ বছর", address: "কুلاঘাট, লালমনিরহাট", joinDate: "০৫ মার্চ, ২০২৫", todaySupply: 18, history: "প্রতিদিন গড়ে ১৫-২০ লিটার" },
+            { name: "মোঃ মשיউর রহমান", age: 52, experience: "১০ বছর", address: "মোস্তফী, লালমনিরহাট", joinDate: "০১ ফেব্রুয়ারি, ২০২৬", todaySupply: 40, history: "প্রতিদিন গড়ে ৩৫-৫০ লিটার" }
         ];
 
-        // ==========================================
-        // ২. ফাউন্ডার ডাটাবেজ (ইংরেজিতে নাম ও ডেজিগনেশন, নো বায়ো)
-        // ==========================================
         const FOUNDERS_DATABASE = [
-            {
-                name: "Nazmus Shakib",
-                role: "Co-Founder & CEO",
-                image: "https://i.ibb.co.com/rRHrr9q1/shakib.png"
-            },
-            {
-                name: "Tahsin Muyaj",
-                role: "Co-Founder & CEO",
-                image: "https://i.ibb.co.com/HptzNCdJ/tahsin.png"
-            }
+            { name: "Nazmus Shakib", role: "Co-Founder & CEO", image: "https://i.ibb.co.com/rRHrr9q1/shakib.png" },
+            { name: "Tahsin Muyaj", role: "Co-Founder & CEO", image: "https://i.ibb.co.com/HptzNCdJ/tahsin.png" }
         ];
 
-        // ==========================================
-        // ৩. সোশ্যাল মিডিয়া লিংক কনফিগারেশন
-        // ==========================================
         const SOCIAL_LINKS = {
             facebook: "https://facebook.com/dudherbazar",
             mail: "mailto:info@dudherbazar.com",
@@ -440,28 +399,21 @@
             youtube: "https://youtube.com"
         };
 
-
-        // --- ইন্টারনাল অ্যাপ লজিক ও ফাংশনস ---
         let selectedPackSize = 0.5;
         let activeLoginType = 'customer';
 
-        // সাইডবার কন্ট্রোল
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('translate-x-full');
-            overlay.classList.toggle('hidden');
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+            document.getElementById('sidebar-overlay').classList.toggle('hidden');
         }
 
-        // লগইন পোর্টাল মডাল হ্যান্ডলিং
+        // লগইন মডাল লজিক
         function openLoginModal(type) {
             activeLoginType = type;
-            const modal = document.getElementById('login-modal');
             const title = document.getElementById('login-modal-title');
             const idLabel = document.getElementById('login-id-label');
             const idInput = document.getElementById('login-id-input');
             
-            // ইনপুট রিসেট
             idInput.value = '';
             document.getElementById('login-password-input').value = '';
 
@@ -474,42 +426,51 @@
                 idLabel.innerText = 'Farmer ID';
                 idInput.placeholder = 'Enter Farmer ID';
             }
-            
-            modal.classList.remove('hidden');
+            document.getElementById('login-modal').classList.remove('hidden');
             toggleSidebar();
         }
         
-        function closeLoginModal() {
-            document.getElementById('login-modal').classList.add('hidden');
-        }
+        function closeLoginModal() { document.getElementById('login-modal').classList.add('hidden'); }
 
         function handleLoginSubmit(e) {
             e.preventDefault();
-            const id = document.getElementById('login-id-input').value;
-            alert("Welcome! Login request received for ID: " + id + ". Processing authentication dashboard...");
+            alert(`Welcome back! Authenticating ${activeLoginType === 'customer' ? 'Customer' : 'Farmer'} Dashboard...`);
             closeLoginModal();
         }
 
-        // অন্যান্য পপ-আপ মডাল ওপেন/ক্লোজ লজিক
+        // 🌟 স্পেশাল ফিচার ১: ফিঙ্গারপ্রিন্ট সেন্সর সিমুলেশন
+        function triggerBiometricAuth() {
+            alert(`Scanning Biometric Fingerprint...\n\n[SUCCESS]: Identity Verified successfully via phone secure-hardware! Opening your ${activeLoginType.toUpperCase()} portal.`);
+            closeLoginModal();
+        }
+
+        // 🌟 স্পেশাল ফিচার ২: রিয়েল-টাইম অফলাইন / অনলাইন ডিটেক্টর লজিক
+        window.addEventListener('offline', () => {
+            document.getElementById('offline-alert').classList.remove('hidden');
+            document.body.classList.add('grayscale'); // নেট চলে গেলে সাইট হালকা ধূসর হবে
+        });
+
+        window.addEventListener('online', () => {
+            document.getElementById('offline-alert').classList.add('hidden');
+            document.body.classList.remove('grayscale');
+            alert("🌐 Internet connection restored! App is running live.");
+        });
+
+        // মডাল কন্ট্রোলস
         function openTracker() { document.getElementById('tracker-modal').classList.remove('hidden'); toggleSidebar(); }
         function closeTracker() { document.getElementById('tracker-modal').classList.add('hidden'); document.getElementById('tracking-result').classList.add('hidden'); }
-        
         function openPolicy() { document.getElementById('policy-modal').classList.remove('hidden'); toggleSidebar(); }
         function closePolicy() { document.getElementById('policy-modal').classList.add('hidden'); }
-        
         function openSupport() { document.getElementById('support-modal').classList.remove('hidden'); toggleSidebar(); }
         function closeSupport() { document.getElementById('support-modal').classList.add('hidden'); }
 
-        // রিয়েল-টাইম অর্ডার ট্র্যাকিং সিমুলেশন
         function trackOrder() {
-            const id = document.getElementById('order-id-input').value.trim();
-            if(!id) { alert("Please enter a valid Order ID!"); return; }
+            if(!document.getElementById('order-id-input').value.trim()) { alert("Please enter a valid Order ID!"); return; }
             document.getElementById('tracking-result').classList.remove('hidden');
         }
 
         function renderFarmers() {
-            const listContainer = document.getElementById('farmers-list');
-            listContainer.innerHTML = FAMERS_DATABASE.map(farmer => `
+            document.getElementById('farmers-list').innerHTML = FAMERS_DATABASE.map(farmer => `
                 <tr class="hover:bg-teal-50/40 transition text-sm md:text-base">
                     <td class="p-4">
                         <div class="font-bold text-gray-900">${farmer.name}</div>
@@ -524,14 +485,10 @@
         }
 
         function renderFounders() {
-            const container = document.getElementById('founders-list');
-            container.innerHTML = FOUNDERS_DATABASE.map(founder => `
+            document.getElementById('founders-list').innerHTML = FOUNDERS_DATABASE.map(founder => `
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg w-72 text-center transform hover:-translate-y-1 transition duration-300">
                     <div class="h-64 bg-teal-50 flex items-center justify-center relative overflow-hidden">
-                        ${founder.image ? 
-                            `<img src="${founder.image}" alt="${founder.name}" class="w-full h-full object-cover">` : 
-                            `<i class="fa-solid fa-user-tie text-teal-300 text-7xl"></i>`
-                        }
+                        ${founder.image ? `<img src="${founder.image}" alt="${founder.name}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-user-tie text-teal-300 text-7xl"></i>`}
                     </div>
                     <div class="p-6 bg-white border-t border-gray-50">
                         <h3 class="text-xl font-bold text-gray-900 mb-1 tracking-wide">${founder.name}</h3>
@@ -542,8 +499,7 @@
         }
 
         function renderSocials() {
-            const container = document.getElementById('social-links');
-            container.innerHTML = `
+            document.getElementById('social-links').innerHTML = `
                 <a href="${SOCIAL_LINKS.facebook}" target="_blank" class="text-teal-200 hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
                 <a href="${SOCIAL_LINKS.mail}" class="text-teal-200 hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
                 <a href="${SOCIAL_LINKS.linkedin}" target="_blank" class="text-teal-200 hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
@@ -551,37 +507,35 @@
             `;
         }
 
-        function selectPackage(size, price) {
+        function selectPackage(size) {
             selectedPackSize = size;
             document.getElementById('pkg-half').classList.toggle('border-teal-600', size === 0.5);
             document.getElementById('pkg-half').classList.toggle('bg-teal-50/30', size === 0.5);
             document.getElementById('pkg-half').classList.toggle('border-transparent', size !== 0.5);
-            
             document.getElementById('pkg-one').classList.toggle('border-teal-600', size === 1);
             document.getElementById('pkg-one').classList.toggle('bg-teal-50/30', size === 1);
             document.getElementById('pkg-one').classList.toggle('border-transparent', size !== 1);
-            
             calculateTotal();
         }
 
         function calculateTotal() {
             const qty = parseFloat(document.getElementById('order-qty').value) || 0;
-            const totalLiters = qty * selectedPackSize;
-            document.getElementById('total-liters').innerText = totalLiters + " লিটার";
+            document.getElementById('total-liters').innerText = (qty * selectedPackSize) + " লিটার";
         }
 
         function handleOrder(e) {
             e.preventDefault();
-            alert("ধন্যবাদ! আপনার অর্ডারটি সিস্টেমে রেকর্ড করা হয়েছে। 'DUDHER BAZAR' টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে।");
+            alert("ধন্যবাদ! আপনার অর্ডারটি সিস্টেমে রেকর্ড করা হয়েছে। 'DUDHER BAZAR' টিম খুব শীঘ্রই যোগাযোগ করবে।");
         }
 
-        // App Initializer
         window.onload = function() {
             renderFarmers();
             renderFounders();
             renderSocials();
             calculateTotal();
+            // অনলোডেই অফলাইন চেক রান করা
+            if(!navigator.onLine) document.getElementById('offline-alert').classList.remove('hidden');
         };
     </script>
 </body>
-</html>
+                                    </html>
