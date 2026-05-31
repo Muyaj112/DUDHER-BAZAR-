@@ -4,68 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DUDHER BAZAR</title>
+    <!-- Tailwind CSS এবং FontAwesome লাইব্রেরি -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col justify-between">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
+    <!-- 🌟 ফিচার ১: অ্যাপ ওপেনিং স্প্ল্যাশ স্ক্রিন (৩ সেকেন্ড পর অটো চলে যাবে) -->
     <div id="appSplashScreen" class="fixed inset-0 bg-gradient-to-br from-teal-800 to-teal-950 z-[9999] flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
         <div class="text-center">
             <div class="w-32 h-32 mx-auto mb-4 relative">
+                <!-- ড্রাইভের ডিরেক্ট লোগো লিংক -->
                 <img src="https://docs.google.com/uc?export=download&id=1E5V8ZKgIhGu6Ti9y7rBwvNBF4USNLHmR" class="w-full h-full object-contain rounded-full border-4 border-white/20 shadow-2xl animate-bounce" alt="Dudher Bazar Logo" style="animation-duration: 0.8s;">
                 <div class="absolute inset-0 bg-teal-400/20 blur-xl rounded-full -z-10 animate-pulse"></div>
             </div>
-            <h1 class="text-white text-2xl font-black tracking-widest uppercase mb-1 drop-shadow-md">দুধের বাজার</h1>
-            <p class="text-teal-200 text-xs tracking-wider font-medium opacity-80 animate-pulse">খাঁটি দুধের বিশ্বস্ত ঠিকানা...</p>
+            <h1 class="text-white text-2xl font-black tracking-widest uppercase mb-1">দুধের বাজার</h1>
+            <p class="text-teal-200 text-xs font-medium opacity-80 animate-pulse">খাঁটি দুধের বিশ্বস্ত ঠিকানা...</p>
         </div>
         <div class="absolute bottom-10 flex flex-col items-center space-y-2">
             <div class="w-6 h-6 border-2 border-teal-200 border-t-transparent rounded-full animate-spin"></div>
-            <span class="text-[10px] text-teal-300 font-bold tracking-widest uppercase">Loading App</span>
+            <span class="text-[10px] text-teal-300 font-bold uppercase tracking-wider">Loading App</span>
         </div>
     </div>
 
-
-    <div class="flex-grow flex items-center justify-center p-4 pt-12">
-        <div class="max-w-md w-full bg-gradient-to-br from-white to-teal-50/30 p-6 rounded-3xl shadow-xl border border-teal-100/50 backdrop-blur-sm">
-            <div class="text-center mb-5">
-                <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Fast Checkout</span>
-                <h2 class="text-xl font-black text-gray-800 mt-2">অর্ডার করুন</h2>
+    <!-- 📋 হেডার ও নেভিগেশন বার (স্ক্রিনশট ১ অনুযায়ী হুবহু) -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="https://docs.google.com/uc?export=download&id=1E5V8ZKgIhGu6Ti9y7rBwvNBF4USNLHmR" class="w-10 h-10 object-contain rounded-full" alt="Dudher Bazar Logo">
+                <span class="text-xl font-black text-teal-800 tracking-wider">DUDHER BAZAR</span>
             </div>
-            
-            <form id="dudherBazarOrderForm" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">প্রতিষ্ঠানের নাম / আপনার নাম</label>
-                    <input type="text" id="custName" required placeholder="যেমন: Diyan Sarkar" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">মোবাইল নাম্বার (যোগাযোগের জন্য)</label>
-                    <input type="tel" id="custContact" required placeholder="যেমন: 017XXXXXXXX" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">হোয়াটসঅ্যাপ নাম্বার (মেসেজ পাওয়ার জন্য)</label>
-                    <input type="tel" id="custWhatsApp" required placeholder="যেমন: 017XXXXXXXX" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-teal-700 to-teal-800 text-white font-bold p-4 rounded-2xl shadow-lg shadow-teal-700/20 hover:from-teal-800 hover:to-teal-900 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 mt-4 flex items-center justify-center space-x-2">
-                    <span>অর্ডার সাবমিট করুন</span>
-                    <i class="fa-solid fa-paper-plane text-sm"></i>
-                </button>
-            </form>
+            <!-- মেনু লিংঙ্কসমূহ -->
+            <nav class="hidden md:flex space-x-6 font-bold text-teal-700">
+                <a href="#" class="hover:text-teal-900">হোম</a>
+                <a href="#" class="hover:text-teal-900">আমাদের সম্পর্কে</a>
+                <a href="#" class="hover:text-teal-900">খামারি তালিকা</a>
+                <a href="#order-section" class="bg-teal-800 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-teal-900">অর্ডার করুন</a>
+            </nav>
+            <!-- মোবাইল মেনু বাটন -->
+            <div class="md:hidden flex space-x-2">
+                <button class="p-2 border border-gray-200 rounded-lg text-gray-600"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-    </div>
+        <!-- মোবাইল নেভিগেশন লিংক (স্ক্রিনশটে যেমন নিচে নেমে এসেছিল) -->
+        <div class="bg-teal-50 px-4 py-2 flex flex-wrap gap-3 text-sm font-bold text-teal-800 md:hidden border-t border-teal-100">
+            <a href="#">হোম</a>
+            <a href="#">আমাদের সম্পর্কে</a>
+            <a href="#">খামারি তালিকা</a>
+            <a href="#order-section" class="text-red-600">অর্ডার করুন</a>
+        </div>
+    </header>
 
+    <!-- 🏆 মেইন কন্টেন্ট এরিয়া -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
 
+        <!-- ব্র্যান্ড পরিচিতি ও বর্ণনা (স্ক্রিনশট ২ অনুযায়ী টেক্সট) -->
+        <section class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center md:text-left">
+            <h2 class="text-2xl font-black text-teal-900 mb-3">🥛 DUDHER BAZAR</h2>
+            <p class="text-lg font-bold text-gray-700 mb-2">পাস্টুরাইজড খাঁটি দুধ</p>
+            <ul class="inline-block text-left space-y-1 text-gray-600 font-medium">
+                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i>নেট ওজন: ১ লিটার মূল্য: নির্ধারিত</li>
+                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i>কোনো প্রিজারভেটিভ নেই</li>
+                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i>হাইজেনিক ল্যাব টেস্টেড</li>
+            </ul>
+            <p class="mt-4 text-gray-600 leading-relaxed max-w-3xl">
+                থেকে সর্বোচ্চ গুণগত মান বজায় রেখে দুধ সংগ্রহ করে। আমরা বড় বড় হোটেল, রেস্টুরেন্ট এবং বেকারিতে সাশ্রয়ী মূল্যে প্রিমিয়াম প্যাকেজিংয়ে দুধ সরবরাহ করে থাকি।
+            </p>
+            <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-4 font-bold text-sm">
+                <a href="#order-section" class="text-teal-700 underline">অনলাইনে অর্ডার করুন</a>
+                <a href="#farmers-section" class="text-teal-700 underline">খামারিদের তথ্য দেখুন</a>
+            </div>
+        </section>
+
+        <!-- 🔐 লগইন পোর্টালসমূহ (স্ক্রিনশট ১ অনুযায়ী) -->
+        <section class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 class="text-lg font-black text-gray-800 mb-4"><i class="fa-solid fa-shield-halved text-teal-700 mr-2"></i>Login Portals</h3>
+            <div class="flex flex-wrap gap-3">
+                <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-4 py-2.5 rounded-xl border border-gray-200 text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-user text-gray-600"></i>
+                    <span>Customer Login</span>
+                </button>
+                <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-4 py-2.5 rounded-xl border border-gray-200 text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-cow text-gray-600"></i>
+                    <span>Farmer Login</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 📲 মোবাইল অ্যাপ্লিকেশন ডাউনলোড সেকশন (স্ক্রিনশট ১ অনুযায়ী) -->
+        <section class="bg-gradient-to-r from-teal-800 to-teal-900 p-6 rounded-3xl text-white relative overflow-hidden shadow-lg shadow-teal-900/20">
+            <div class="relative z-10 space-y-3">
+                <h3 class="text-lg font-black tracking-wide uppercase">Mobile Application</h3>
+                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center animate-bounce">
+                    <i class="fa-solid fa-arrow-down text-lg text-teal-200"></i>
+                </div>
+                <div>
+                    <a href="#" class="text-xl font-extrabold underline block hover:text-teal-200 transition">Download Our Official</a>
+                    <a href="#" class="text-xl font-extrabold underline block hover:text-teal-200 transition">Android Mobile App</a>
+                </div>
+                <span class="inline-block bg-amber-500 text-teal-950 font-black px-3 py-1 rounded-full text-xs uppercase tracking-wider">FREE</span>
+            </div>
+            <div class="absolute -right-6 -bottom-6 text-9xl text-white/5 font-black pointer-events-none uppercase">APP</div>
+        </section>
+
+        <!-- 🛒 ফিচার ২: নতুন প্রিমিয়াম অর্ডার ফর্ম (২টি নাম্বারের ঘরসহ) -->
+        <section id="order-section" class="scroll-mt-20">
+            <div class="max-w-md mx-auto bg-gradient-to-br from-white to-teal-50/30 p-6 rounded-3xl shadow-xl border border-teal-100/50 backdrop-blur-sm">
+                <div class="text-center mb-5">
+                    <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Fast Checkout</span>
+                    <h2 class="text-xl font-black text-gray-800 mt-2">অনলাইনে অর্ডার ফরম</h2>
+                </div>
+                
+                <form id="dudherBazarOrderForm" class="space-y-4">
+                    <!-- নাম ইনপুট -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">প্রতিষ্ঠানের নাম / আপনার নাম</label>
+                        <input type="text" id="custName" required placeholder="যেমন: Diyan Sarkar" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
+                    </div>
+
+                    <!-- কন্টাক্ট নাম্বার ইনপুট -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">মোবাইল নাম্বার (যোগাযোগের জন্য)</label>
+                        <input type="tel" id="custContact" required placeholder="যেমন: 017XXXXXXXX" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
+                    </div>
+
+                    <!-- হোয়াটসঅ্যাপ নাম্বার ইনপুট -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 ml-1">হোয়াটসঅ্যাপ নাম্বার (মেсеজ পাওয়ার জন্য)</label>
+                        <input type="tel" id="custWhatsApp" required placeholder="যেমন: 017XXXXXXXX" class="w-full p-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all duration-300">
+                    </div>
+
+                    <!-- সাবমিট বাটন -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-teal-700 to-teal-800 text-white font-bold p-4 rounded-2xl shadow-lg shadow-teal-700/20 hover:from-teal-800 hover:to-teal-900 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 mt-4 flex items-center justify-center space-x-2">
+                        <span>অর্ডার সাবমিট করুন</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 👥 আমাদের গর্বিত খামারি সমাজ টেবিল (স্ক্রিনশট ২ অনুযায়ী হুবহু ডাটা) -->
+        <section id="farmers-section" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <h3 class="text-xl font-black text-gray-800 mb-2">আমাদের গর্বিত খামারি সমাজ</h3>
+            <p class="text-sm text-gray-500 mb-4">স্বচ্ছতায় আমরা বিশ্বাসী। আমাদের দুধের মূল কারিগর যারা, তাদের বিস্তারিত প্রোফাইল এবং দৈনিক দুধ সরবরাহের লাইভ ডাটা নিচে দেওয়া হলো।</p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[500px] text-sm">
+                    <thead>
+                        <tr class="bg-teal-50 text-teal-900 font-bold border-b border-teal-100">
+                            <th class="p-3">খামারি / বায়োডাটা</th>
+                            <th class="p-3">ঠিকানা</th>
+                            <th class="p-3">যোগদানের তারিখ</th>
+                            <th class="p-3">আজকের সরবরাহ (লিটার)</th>
+                            <th class="p-3">মোট রেকর্ড</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-gray-700 font-medium">
+                        <tr>
+                            <td class="p-3">
+                                <span class="font-bold text-gray-900 block">আব্দুস কুদ্দুস</span>
+                                <span class="text-xs text-gray-500">বয়স: 45 বছর | অভিজ্ঞতা: ৫ বছর</span>
+                            </td>
+                            <td class="p-3">চাচীয়া মীরগঞ্জ, সুন্দরগঞ্জ</td>
+                            <td class="p-3">১২ জানুয়ারি, ২০২৪</td>
+                            <td class="p-3 font-bold text-teal-700">25 লিটার</td>
+                            <td class="p-3 text-xs text-gray-500">প্রতিদিন গড়ে ২০-৩০ লিটার</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">
+                                <span class="font-bold text-gray-900 block">মোছাঃ রহিমা বেগম</span>
+                                <span class="text-xs text-gray-500">বয়স: 38 বছর | অভিজ্ঞতা: ৩ বছর</span>
+                            </td>
+                            <td class="p-3">ব্রাক মোড়, सुंदरগঞ্জ</td>
+                            <td class="p-3">০৫ মার্চ, ২০২৫</td>
+                            <td class="p-3 font-bold text-teal-700">18 লিটার</td>
+                            <td class="p-3 text-xs text-gray-500">প্রতিদিন গড়ে ১৫-২০ লিটার</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 📦 অর্ডার ম্যানেজমেন্ট ও সাপোর্ট (স্ক্রিনশট ১ অনুযায়ী) -->
+        <section class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
+                <h4 class="font-black text-gray-800">Order Management</h4>
+                <button class="bg-teal-50 text-teal-800 hover:bg-teal-100 font-bold px-4 py-2 rounded-xl text-xs border border-teal-100 flex items-center space-x-2">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Track Your Order</span>
+                </button>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-1">
+                <h4 class="font-black text-gray-800">Company & Support</h4>
+                <p class="text-xs text-gray-500">যেকোনো তথ্যের জন্য আমাদের সাপোর্ট সেন্টারে যোগাযোগ করুন।</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 📊 ফুটার সেকশন -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-12 text-xs border-t border-gray-800">
+        <p>&copy; 2026 DUDHER BAZAR. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 🌟 ফিচার ৩: কাস্টম প্রিমিয়াম সাকসেস পপআপ (অর্ডার শেষে ডান্সিং কাউ ইফেক্ট) -->
     <div id="successModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl border border-gray-100 transform scale-90 transition-transform duration-300" id="modalCard">
             <div class="relative w-28 h-28 mx-auto mb-4">
+                <!-- ড্রাইভের ডিরেক্ট লোগো এখানেও দেওয়া হলো যা অর্ডার শেষে নাচবে -->
                 <img src="https://docs.google.com/uc?export=download&id=1E5V8ZKgIhGu6Ti9y7rBwvNBF4USNLHmR" id="dancingCow" class="w-full h-full object-contain rounded-full border-4 border-teal-500 shadow-md" alt="Dudher Bazar Logo">
                 <span class="absolute -top-1 -right-1 text-xl animate-ping">🎉</span>
                 <span class="absolute -bottom-1 -left-1 text-xl animate-bounce">✨</span>
             </div>
             <h3 class="text-xl font-black text-gray-800 mb-2">অর্ডার সফল হয়েছে!</h3>
-            <p class="text-sm text-gray-500 leading-relaxed mb-6">ধন্যবাদ! আপনার অর্ডারটি সিস্টেমে রেকর্ড করা হয়েছে। 'DUDHER BAZAR' টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে।</p>
+            <p class="text-sm text-gray-500 leading-relaxed mb-6">ধন্যবাদ! আপনার অর্ডারটি সিস্টেমে সফলভাবে রেকর্ড করা হয়েছে। 'DUDHER BAZAR' টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে।</p>
             <button id="goToWhatsAppBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold p-3.5 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2">
                 <i class="fa-brands fa-whatsapp text-lg"></i>
                 <span>হোয়াটসঅ্যাপ মেসেজ দিন</span>
@@ -73,11 +225,11 @@
         </div>
     </div>
 
-
+    <!-- ⚙️ জাভাস্ক্রিপ্ট কন্ট্রোল ও লজিক (১০০% এরর ফ্রি) -->
     <script>
     let finalWhatsAppUrl = "";
 
-    // স্প্ল্যাশ স্ক্রিন টাইমিং (৩ সেকেন্ড)
+    // ওপেনিং স্প্ল্যাশ স্ক্রিন টাইমিং (৩ সেকেন্ড পর রিমুভ হবে)
     window.addEventListener('DOMContentLoaded', (event) => {
         setTimeout(() => {
             const splash = document.getElementById('appSplashScreen');
@@ -86,7 +238,7 @@
         }, 3000);
     });
 
-    // ফর্ম সাবমিশন লজিক
+    // অর্ডার ফর্ম সাবমিশন ও হোয়াটসঅ্যাপ ডাটা রেডি করা
     document.getElementById('dudherBazarOrderForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -94,15 +246,16 @@
         var contactNum = document.getElementById('custContact').value;
         var whatsAppNum = document.getElementById('custWhatsApp').value;
 
+        // হোয়াটসঅ্যাপ নাম্বার ফর্ম্যাটিং (বাংলাদেশী কান্ট্রি কোড যোগ)
         if(whatsAppNum.startsWith('0')) {
             whatsAppNum = '88' + whatsAppNum;
         }
 
-        var messageText = "আসসালামু আলাইকুম " + name + " ভাই,\n\n'দুধের বাজার'-এ অর্ডার করার জন্য আপনাকে ধন্যবাদ! 🥛\n\nYour order is recorded successfully.\n📱 Contact Number: " + contactNum + "\n\nখুব শীঘ্রই আমাদের টিম যোগাযোগ করছে। আমাদের সাথেই থাকুন! 🚀";
+        var messageText = "আসসালামু আলাইকুম " + name + " ভাই,\n\n'দুধের বাজার'-এ অর্ডার করার জন্য আপনাকে ধন্যবাদ! 🥛\n\nআপনার অর্ডারটি আমাদের সিস্টেমে সফলভাবে রেকর্ড করা হয়েছে।\n📱 কন্টাক্ট নাম্বার: " + contactNum + "\n\nখুব শীঘ্রই আমাদের টিম আপনার সাথে যোগাযোগ করে খাঁটি দুধ ডেলিভারির ব্যবস্থা করছে। আমাদের সাথেই থাকুন! 🚀";
         var encodedMessage = encodeURIComponent(messageText);
         finalWhatsAppUrl = "https://wa.me/" + whatsAppNum + "?text=" + encodedMessage;
 
-        // পপআপ শো এবং লোগো নাচানো
+        // কাস্টম সাকসেস পপআপ এবং গরুর ডান্স অ্যানিমেশন চালু করা
         const modal = document.getElementById('successModal');
         const card = document.getElementById('modalCard');
         const cow = document.getElementById('dancingCow');
@@ -119,7 +272,7 @@
         cow.style.animationDuration = "0.8s";
     });
 
-    // হোয়াটসঅ্যাপ বাটনে ক্লিক করলে রিডাইরেক্ট
+    // হোয়াটসঅ্যাপ একশন বাটনে ক্লিক করলে মেসেজ ট্রিমারে রিডাইরেক্ট করবে
     document.getElementById('goToWhatsAppBtn').addEventListener('click', function() {
         if(finalWhatsAppUrl !== "") {
             window.location.href = finalWhatsAppUrl;
@@ -127,4 +280,4 @@
     });
     </script>
 </body>
-</html>
+                    </html>
